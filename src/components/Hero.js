@@ -19,16 +19,16 @@ const Hero = () => {
       <Col sm={{ span: 5, offset: 1 }}>
         <div className="hero-image-wrapper">
           {isIE ? (
-            <>
+            <div>
               <img src={HeroImage} alt="hero.png" className="hero-image" />
               <img
                 src={HeroBgImage}
                 alt="hero.png"
                 className="hero-image-background"
               />
-            </>
+            </div>
           ) : (
-            <>
+            <div>
               <StaticImage
                 src="../images/hero.png"
                 alt="hero.png"
@@ -45,7 +45,7 @@ const Hero = () => {
                 loading="eager"
                 placeholder="blurred"
               />
-            </>
+            </div>
           )}
         </div>
       </Col>

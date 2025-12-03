@@ -7,7 +7,7 @@ import { IEContext } from "./Layout";
 import Tinted from "../images/Tinted_Photography256.jpg";
 
 const ProfileList = (props) => {
-  const Text = ({ children }) => children;
+  const Text = ({ children }) => <span>{children}</span>;
   const InlineLink = ({ link, children }) => (
     <a href={link} className="class-link" target="_blank" rel="noreferrer">
       {children}
@@ -28,7 +28,7 @@ const ProfileList = (props) => {
   const isIE = useContext(IEContext);
 
   return (
-    <>
+    <div>
       <Row className="section-profile">
         <Col
           sm={{ span: 10, offset: 1 }}
@@ -156,7 +156,7 @@ const ProfileList = (props) => {
           </a>
         </Col>
       </Row>
-    </>
+    </div>
   );
 };
 

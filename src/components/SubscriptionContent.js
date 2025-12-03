@@ -10,7 +10,7 @@ const SubscriptionContent = (props) => {
   const borderClass= props.color==="navyBorder" ? "subscriptionContent-border navyBorder" : "subscriptionContent-border";
   const indexClass = props.color==="navyBorder" ? "subscriptionContent-index navyBorder" : "subscriptionContent-index";
 
-  const Text = ({ children }) => children;
+  const Text = ({ children }) => <span>{children}</span>;
   const InlineLink = ({ link, children }) => (
     <a href={link} className="class-link" target="_blank" rel="noreferrer">
       {children}

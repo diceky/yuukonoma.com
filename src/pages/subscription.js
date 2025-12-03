@@ -54,7 +54,7 @@ const Subscription = () => {
   if (docHeight - windowBottom < 100 && popIn === false) setPopIn(true);
   else if (docHeight - windowBottom >= 100 && popIn === true) setPopIn(false);
 
-  const Text = ({ children }) => children;
+  const Text = ({ children }) => <span>{children}</span>;
   const InlineLink = ({ link, children }) => (
     <a href={link} className="class-link" target="_blank" rel="noreferrer">
       {children}

@@ -7,7 +7,7 @@ import { IEContext } from "./Layout";
 import Tinted from "../images/Tinted_Photography256.jpg";
 
 const ProfileList = (props) => {
-  const Text = ({ children }) => <span>{children}</span>;
+  const Text = ({ children }) => <p>{children}</p>;
   const InlineLink = ({ link, children }) => (
     <a href={link} className="class-link" target="_blank" rel="noreferrer">
       {children}
@@ -21,8 +21,15 @@ const ProfileList = (props) => {
         <InlineLink link={data.uri}>{children}</InlineLink>
       ),
     },
-    renderText: (text) =>
-      text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
+    renderText: (text) => {
+      const parts = text.split("\n");
+      return parts.map((seg, i) => (
+        <span key={`seg-${i}`}>
+          {i > 0 ? <br key={`br-${i}`} /> : null}
+          {seg}
+        </span>
+      ));
+    },
   };
 
   const isIE = useContext(IEContext);
@@ -55,9 +62,9 @@ const ProfileList = (props) => {
           xl={{ span: 5, offset: 0 }}
         >
           <p className="profile-title">PROFILE</p>
-          <p className="profile-text">
+          <div className="profile-text">
             {renderRichText(props.profile, options)}
-          </p>
+          </div>
           <p className="events-title">イベント</p>
           <span className="events-text">
             <ul className="events-list">

@@ -18,11 +18,18 @@ const Lesson = (props) => {
       [INLINES.HYPERLINK]: ({ data }, children) => (
         <InlineLink link={data.uri}>{children}</InlineLink>
       ),
+      [BLOCKS.UL_LIST]: (node, children) => <ul>{children}</ul>,
+      [BLOCKS.OL_LIST]: (node, children) => <ol>{children}</ol>,
+      [BLOCKS.LIST_ITEM]: (node, children) => <li>{children}</li>,
     },
-    renderText: text => {
-      return text.split('\n').reduce((children, textSegment, index) => {
-        return [...children, index > 0 && <br key={index} />, textSegment];
-      }, []);
+    renderText: (text) => {
+      const parts = text.split("\n");
+      return parts.map((seg, i) => (
+        <span key={`seg-${i}`}>
+          {i > 0 ? <br key={`br-${i}`} /> : null}
+          {seg}
+        </span>
+      ));
     },
   };
 
@@ -42,9 +49,9 @@ const Lesson = (props) => {
                 {item}
               </p>
             ))}
-          <p className="class-explanation">
+          <div className="class-explanation">
             {renderRichText(props.explanation, options)}
-          </p>
+          </div>
           {props.isOnline && (
             <p>
               <b>この講座はオンラインで行います。</b>

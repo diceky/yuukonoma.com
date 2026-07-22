@@ -68,6 +68,7 @@ const Lesson = (props) => {
           sm={{ span: 8, offset: 2 }}
           md={{ span: 8, offset: 2 }}
           xl={{ span: 4, offset: 0 }}
+          className="class-image-wrapper"
         >
           <SlickSlider image={props.image} className="class-image-wrapper" />
             <div className="btn-book-wrapper">

@@ -384,7 +384,7 @@ const Hypnobirthing = () => {
                 <Col
                     sm={{ span: 8, offset: 2 }}
                     md={{ span: 8, offset: 2 }}
-                    lg={{ span: 8, offset: 2 }}
+                    lg={{ span: 6, offset: 0 }}
                     xl={{ span: 4, offset: 2 }}
                 >
                     <Fade bottom>
@@ -396,6 +396,12 @@ const Hypnobirthing = () => {
                                     options1
                                 )}
                             </p>
+                            {data.allContentfulHypnobirthing.nodes[0].dates[0].dates.map((date, index) => (
+                                <div className="hypnobirthDetails-date">
+                                    <span className="hypnobirthDetails-date-left">{`DAY ${index + 1}`}</span>
+                                    <span className="hypnobirthDetails-date-right">{date}</span>
+                                </div>
+                            ))}
                             <p className="hypnobirthDetails-notes-heading">&lt;講座詳細&gt;</p>
                             {renderRichText(
                                 data.allContentfulHypnobirthing.nodes[0].dates[0].notes,
@@ -403,6 +409,37 @@ const Hypnobirthing = () => {
                             )}
                             <a
                                 href={data.allContentfulHypnobirthing.nodes[0].dates[0].link}
+                                className="btn-subscription large"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                お申し込みはこちら
+                            </a>
+                        </div>
+                    </Fade>
+                </Col>
+                <Col
+                    sm={{ span: 8, offset: 2 }}
+                    md={{ span: 8, offset: 2 }}
+                    lg={{ span: 6, offset: 0 }}
+                    xl={{ span: 4, offset: 0 }}
+                >
+                    <Fade bottom>
+                        <div className="hypnobirthDetails-item">
+                            <p className="hypnobirthDetails-title">{data.allContentfulHypnobirthing.nodes[0].dates[1].title}</p>
+                            <p className="hypnobirthDetails-explanation">
+                                {renderRichText(
+                                    data.allContentfulHypnobirthing.nodes[0].dates[1].explanation,
+                                    options1
+                                )}
+                            </p>
+                            <p className="hypnobirthDetails-notes-heading">&lt;講座詳細&gt;</p>
+                            {renderRichText(
+                                data.allContentfulHypnobirthing.nodes[0].dates[1].notes,
+                                options2
+                            )}
+                            <a
+                                href={data.allContentfulHypnobirthing.nodes[0].dates[1].link}
                                 className="btn-subscription large"
                                 target="_blank"
                                 rel="noreferrer"
